@@ -75,7 +75,7 @@ export const managePostImages = ($) => {
 }
 
 export const makeImagesZoomable = ($, mediumZoom) => {
-  const zoom = mediumZoom('.js-zoomable')
+  const zoom = window.mediumZoomInstance = mediumZoom('.js-zoomable');
 
   zoom.on('opened', () => {
     setTimeout(() => {
@@ -83,6 +83,8 @@ export const makeImagesZoomable = ($, mediumZoom) => {
       if ($mediumZoomImages.length > 1) {
         $mediumZoomImages.last().hide()
       }
-    }, 10)
-  })
+    }, 10);
+  });
+
+
 }
